@@ -2,6 +2,8 @@ backend:
   name: github
   repo: lulsterl15/los-demonios-landing
   branch: master
+  base_url: https://los-demonios-landing.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "assets"
 public_folder: "/assets"
