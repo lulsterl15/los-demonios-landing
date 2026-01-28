@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: lulsterl15/los-demonios-landing
   branch: master
 
 media_folder: "assets"
