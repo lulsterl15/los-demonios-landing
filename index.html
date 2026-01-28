@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Demonios - Book 1 | Troy Everest & Steve Ballantyne</title>
     <meta name="description" content="Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -404,7 +405,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">LOS DEMONIOS</div>
+                <div class="logo" id="nav-logo">LOS DEMONIOS</div>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#synopsis">Synopsis</a></li>
@@ -418,27 +419,27 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>LOS DEMONIOS</h1>
-                    <p class="subtitle">The Dark and Supernatural City Below Los Angeles</p>
-                    <p class="tagline">Book 1</p>
+                    <h1 id="hero-title">LOS DEMONIOS</h1>
+                    <p class="subtitle" id="hero-subtitle">The Dark and Supernatural City Below Los Angeles</p>
+                    <p class="tagline" id="hero-tagline">Book 1</p>
                     
                     <div class="rating">
                         <span class="stars">★★★★★</span>
-                        <span>4.8 out of 5 stars (6 reviews)</span>
+                        <span><span id="rating-value">4.8</span> out of 5 stars (<span id="rating-count">6 reviews</span>)</span>
                     </div>
 
-                    <p class="description">
+                    <p class="description" id="hero-description">
                         Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.
                     </p>
 
                     <div class="cta-buttons">
-                        <a href="https://www.amazon.ca/dp/B0FV29SR63" target="_blank" class="btn btn-primary">Buy on Amazon</a>
+                        <a href="https://www.amazon.ca/dp/B0FV29SR63" id="amazon-link" target="_blank" class="btn btn-primary">Buy on Amazon</a>
                         <a href="#synopsis" class="btn btn-secondary">Read More</a>
                     </div>
                 </div>
 
                 <div class="hero-image">
-                    <img src="assets/book-cover.jpg" alt="Los Demonios Book Cover" class="book-cover">
+                    <img src="assets/book-cover.jpg" id="book-cover-img" alt="Los Demonios Book Cover" class="book-cover">
                 </div>
             </div>
         </div>
@@ -446,7 +447,7 @@
 
     <section id="about" class="features">
         <div class="container">
-            <div class="features">
+            <div class="features" id="features-container">
                 <div class="feature-card">
                     <div class="feature-icon">🧛</div>
                     <h3>Supernatural World</h3>
@@ -471,17 +472,17 @@
     <section id="synopsis" class="synopsis">
         <div class="container">
             <h2 class="section-title">The Story</h2>
-            <div class="synopsis-content">
-                <p>
+            <div class="synopsis-content" id="synopsis-content">
+                <p id="synopsis-para1">
                     LAPD Officer Jim Delaney thought he'd seen it all on the streets of Los Angeles. Then he got reassigned to Los Demonios—a hidden city beneath LA where the supernatural isn't just real, it's the law.
                 </p>
-                <p>
+                <p id="synopsis-para2">
                     Vampires, werewolves, witches, ghosts, and ghouls don't just exist here—they thrive. And they don't take kindly to humans, especially human cops. For creatures who see mortals as food or playthings, Jim's survival odds aren't looking good.
                 </p>
-                <p>
+                <p id="synopsis-para3">
                     But the monsters aren't the real danger. The real threat comes in the form of temptation: a brilliant human hematologist, a ghost desperate for physical form, a vampire's daughter with secrets of her own, and a werewolf biker queen who plays by no one's rules.
                 </p>
-                <p>
+                <p id="synopsis-para4">
                     In Los Demonios, Jim will have to fight to keep his morals intact, his head attached, and his heart from leading him into darkness. Because down here, desire and death are dangerously interlinked.
                 </p>
             </div>
@@ -491,7 +492,7 @@
     <section id="purchase" class="purchase-section">
         <div class="container">
             <h2 class="section-title">Get Your Copy</h2>
-            <div class="purchase-options">
+            <div class="purchase-options" id="purchase-options">
                 <div class="purchase-card">
                     <div class="format-label">Kindle Edition</div>
                     <div class="price">$5.54</div>
@@ -520,8 +521,8 @@
         <div class="container">
             <div class="authors-content">
                 <h2 class="section-title">The Authors</h2>
-                <h3 class="author-names">Troy Everest & Steve Ballantyne</h3>
-                <p class="description">
+                <h3 class="author-names" id="author-names">Troy Everest & Steve Ballantyne</h3>
+                <p class="description" id="author-bio">
                     Two masterful storytellers bringing you a dark and thrilling journey into the supernatural underworld of Los Angeles.
                 </p>
             </div>
@@ -534,5 +535,69 @@
             <p>Published October 7, 2025</p>
         </div>
     </footer>
+
+    <script>
+        fetch('content/landing.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('nav-logo').textContent = data.title;
+                document.getElementById('hero-title').textContent = data.title;
+                document.getElementById('hero-subtitle').textContent = data.subtitle;
+                document.getElementById('hero-tagline').textContent = data.tagline;
+                document.getElementById('hero-description').textContent = data.description;
+                document.getElementById('rating-value').textContent = data.rating;
+                document.getElementById('rating-count').textContent = data.ratingCount;
+                document.getElementById('amazon-link').href = data.amazonLink;
+                document.getElementById('book-cover-img').src = data.coverImage;
+                
+                document.getElementById('synopsis-para1').textContent = data.synopsis.para1;
+                document.getElementById('synopsis-para2').textContent = data.synopsis.para2;
+                document.getElementById('synopsis-para3').textContent = data.synopsis.para3;
+                document.getElementById('synopsis-para4').textContent = data.synopsis.para4;
+                
+                const featuresContainer = document.getElementById('features-container');
+                featuresContainer.innerHTML = '';
+                data.features.forEach(feature => {
+                    const featureCard = document.createElement('div');
+                    featureCard.className = 'feature-card';
+                    featureCard.innerHTML = `
+                        <div class="feature-icon">${feature.icon}</div>
+                        <h3>${feature.title}</h3>
+                        <p>${feature.description}</p>
+                    `;
+                    featuresContainer.appendChild(featureCard);
+                });
+                
+                const purchaseOptions = document.getElementById('purchase-options');
+                purchaseOptions.innerHTML = '';
+                data.purchaseOptions.forEach(option => {
+                    const card = document.createElement('div');
+                    card.className = 'purchase-card';
+                    card.innerHTML = `
+                        <div class="format-label">${option.format}</div>
+                        <div class="price">${option.price}</div>
+                        <p class="price-note">${option.note}</p>
+                        <a href="${option.link}" target="_blank" class="btn btn-primary">Buy ${option.format}</a>
+                    `;
+                    purchaseOptions.appendChild(card);
+                });
+                
+                document.getElementById('author-names').textContent = data.authors.names;
+                document.getElementById('author-bio').textContent = data.authors.bio;
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+            });
+
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>

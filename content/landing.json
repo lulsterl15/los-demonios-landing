@@ -1,0 +1,57 @@
+{
+  "title": "LOS DEMONIOS",
+  "subtitle": "The Dark and Supernatural City Below Los Angeles",
+  "tagline": "Book 1",
+  "description": "Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.",
+  "rating": "4.8",
+  "ratingCount": "6 reviews",
+  "amazonLink": "https://www.amazon.ca/dp/B0FV29SR63",
+  "coverImage": "/assets/book-cover.jpg",
+  "synopsis": {
+    "para1": "LAPD Officer Jim Delaney thought he'd seen it all on the streets of Los Angeles. Then he got reassigned to Los Demonios—a hidden city beneath LA where the supernatural isn't just real, it's the law.",
+    "para2": "Vampires, werewolves, witches, ghosts, and ghouls don't just exist here—they thrive. And they don't take kindly to humans, especially human cops. For creatures who see mortals as food or playthings, Jim's survival odds aren't looking good.",
+    "para3": "But the monsters aren't the real danger. The real threat comes in the form of temptation: a brilliant human hematologist, a ghost desperate for physical form, a vampire's daughter with secrets of her own, and a werewolf biker queen who plays by no one's rules.",
+    "para4": "In Los Demonios, Jim will have to fight to keep his morals intact, his head attached, and his heart from leading him into darkness. Because down here, desire and death are dangerously interlinked."
+  },
+  "features": [
+    {
+      "icon": "🧛",
+      "title": "Supernatural World",
+      "description": "Dive into a city beneath Los Angeles teeming with vampires, werewolves, witches, ghosts, and ghouls."
+    },
+    {
+      "icon": "👮",
+      "title": "Noir Thriller",
+      "description": "Follow LAPD Officer Jim Delaney as he navigates a dangerous world where he's both cop and prey."
+    },
+    {
+      "icon": "💔",
+      "title": "Dark Romance",
+      "description": "Experience temptations that blur the lines between duty and desire in a supernatural noir setting."
+    }
+  ],
+  "purchaseOptions": [
+    {
+      "format": "Kindle Edition",
+      "price": "$5.54",
+      "note": "or FREE with Kindle Unlimited",
+      "link": "https://www.amazon.ca/dp/B0FV29SR63"
+    },
+    {
+      "format": "Paperback",
+      "price": "$19.51",
+      "note": "397 pages",
+      "link": "https://www.amazon.ca/dp/B0FV29SR63"
+    },
+    {
+      "format": "Hardcover",
+      "price": "$27.42",
+      "note": "Premium edition",
+      "link": "https://www.amazon.ca/dp/B0FV29SR63"
+    }
+  ],
+  "authors": {
+    "names": "Troy Everest & Steve Ballantyne",
+    "bio": "Two masterful storytellers bringing you a dark and thrilling journey into the supernatural underworld of Los Angeles."
+  }
+}
