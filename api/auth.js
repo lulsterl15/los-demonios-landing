@@ -2,14 +2,26 @@ const CLIENT_ID = process.env.OAUTH_CLIENT_ID;
 const CLIENT_SECRET = process.env.OAUTH_CLIENT_SECRET;
 
 module.exports = async (req, res) => {
-  const { code } = req.query;
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (!code) {
-    return res.status(400).json({ error: 'No code provided' });
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
 
+  const { code, provider } = req.query;
+
+  // If no code, redirect to GitHub OAuth
+  if (!code) {
+    const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo,user`;
+    return res.redirect(authUrl);
+  }
+
+  // Exchange code for token
   try {
-    const response = await fetch('https://github.com/login/oauth/access_token', {
+    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,32 +34,58 @@ module.exports = async (req, res) => {
       }),
     });
 
-    const data = await response.json();
+    const data = await tokenResponse.json();
 
     if (data.error) {
       return res.status(400).json(data);
     }
 
-    const script = `
-      <script>
-        (function() {
-          function receiveMessage(e) {
-            console.log("receiveMessage %o", e);
-            window.opener.postMessage(
-              'authorization:github:success:${JSON.stringify(data)}',
-              e.origin
-            );
-            window.removeEventListener("message", receiveMessage, false);
-          }
-          window.addEventListener("message", receiveMessage, false);
-          console.log("Sending message: %o", "github");
-          window.opener.postMessage("authorizing:github", "*");
-        })();
-      </script>
+    // Return the success page that communicates with the CMS
+    const html = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Authorizing...</title>
+      </head>
+      <body>
+        <h1>Authorization successful!</h1>
+        <p>This window should close automatically...</p>
+        <script>
+          (function() {
+            function receiveMessage(e) {
+              console.log("receiveMessage", e);
+              if (!e.origin.match(/localhost|vercel\.app$/)) {
+                console.log("Invalid origin: " + e.origin);
+                return;
+              }
+              
+              window.opener.postMessage(
+                'authorization:github:success:' + JSON.stringify(${JSON.stringify(data)}),
+                e.origin
+              );
+              
+              window.removeEventListener("message", receiveMessage, false);
+            }
+            
+            window.addEventListener("message", receiveMessage, false);
+            
+            console.log("Sending message to opener");
+            window.opener.postMessage("authorizing:github", "*");
+            
+            // Auto-close after 3 seconds
+            setTimeout(function() {
+              window.close();
+            }, 3000);
+          })();
+        </script>
+      </body>
+      </html>
     `;
     
-    return res.status(200).send(script);
+    return res.status(200).send(html);
   } catch (error) {
+    console.error('OAuth error:', error);
     return res.status(500).json({ error: error.message });
   }
 };
