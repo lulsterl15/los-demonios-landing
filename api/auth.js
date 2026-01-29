@@ -1,7 +1,7 @@
-const CLIENT_ID = process.env.OAUTH_CLIENT_ID;
-const CLIENT_SECRET = process.env.OAUTH_CLIENT_SECRET;
+export default async function handler(req, res) {
+  const CLIENT_ID = process.env.OAUTH_CLIENT_ID;
+  const CLIENT_SECRET = process.env.OAUTH_CLIENT_SECRET;
 
-module.exports = async (req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
           (function() {
             function receiveMessage(e) {
               console.log("receiveMessage", e);
-              if (!e.origin.match(/localhost|vercel\.app$/)) {
+              if (!e.origin.match(/localhost|vercel\\.app$/)) {
                 console.log("Invalid origin: " + e.origin);
                 return;
               }
@@ -88,4 +88,4 @@ module.exports = async (req, res) => {
     console.error('OAuth error:', error);
     return res.status(500).json({ error: error.message });
   }
-};
+}
