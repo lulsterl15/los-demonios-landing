@@ -4,8 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Los Demonios</title>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'lulsterl15/los-demonios-landing',
+          branch: 'master',
+          base_url: 'https://los-demonios-landing.vercel.app',
+          auth_endpoint: 'api/auth'
+        },
+        media_folder: 'assets',
+        public_folder: '/assets',
+        collections: [
+          {
+            name: 'content',
+            label: 'Page Content',
+            files: [
+              {
+                label: 'Landing Page',
+                name: 'landing',
+                file: 'content/landing.json',
+                fields: [
+                  { label: 'Book Title', name: 'title', widget: 'string' },
+                  { label: 'Subtitle', name: 'subtitle', widget: 'string' },
+                  { label: 'Tagline', name: 'tagline', widget: 'string' },
+                  { label: 'Hero Description', name: 'description', widget: 'text' },
+                  { label: 'Rating', name: 'rating', widget: 'string' },
+                  { label: 'Rating Count', name: 'ratingCount', widget: 'string' },
+                  { label: 'Amazon Link', name: 'amazonLink', widget: 'string' },
+                  { label: 'Book Cover Image', name: 'coverImage', widget: 'image' },
+                  {
+                    label: 'Synopsis',
+                    name: 'synopsis',
+                    widget: 'object',
+                    fields: [
+                      { label: 'Paragraph 1', name: 'para1', widget: 'text' },
+                      { label: 'Paragraph 2', name: 'para2', widget: 'text' },
+                      { label: 'Paragraph 3', name: 'para3', widget: 'text' },
+                      { label: 'Paragraph 4', name: 'para4', widget: 'text' }
+                    ]
+                  },
+                  {
+                    label: 'Features',
+                    name: 'features',
+                    widget: 'list',
+                    fields: [
+                      { label: 'Icon', name: 'icon', widget: 'string' },
+                      { label: 'Title', name: 'title', widget: 'string' },
+                      { label: 'Description', name: 'description', widget: 'text' }
+                    ]
+                  },
+                  {
+                    label: 'Purchase Options',
+                    name: 'purchaseOptions',
+                    widget: 'list',
+                    fields: [
+                      { label: 'Format', name: 'format', widget: 'string' },
+                      { label: 'Price', name: 'price', widget: 'string' },
+                      { label: 'Note', name: 'note', widget: 'string' },
+                      { label: 'Link', name: 'link', widget: 'string' }
+                    ]
+                  },
+                  {
+                    label: 'Authors',
+                    name: 'authors',
+                    widget: 'object',
+                    fields: [
+                      { label: 'Names', name: 'names', widget: 'string' },
+                      { label: 'Bio', name: 'bio', widget: 'text' }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
