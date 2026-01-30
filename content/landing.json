@@ -15,17 +15,17 @@
   },
   "features": [
     {
-      "icon": "🧛",
+      "icon": "☠",
       "title": "Supernatural World",
       "description": "Dive into a city beneath Los Angeles teeming with vampires, werewolves, witches, ghosts, and ghouls."
     },
     {
-      "icon": "👮",
+      "icon": "⚔",
       "title": "Noir Thriller",
       "description": "Follow LAPD Officer Jim Delaney as he navigates a dangerous world where he's both cop and prey."
     },
     {
-      "icon": "💔",
+      "icon": "🗡",
       "title": "Dark Romance",
       "description": "Experience temptations that blur the lines between duty and desire in a supernatural noir setting."
     }
