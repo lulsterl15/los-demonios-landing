@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Demonios - Book 1 | Troy Everest & Steve Ballantyne</title>
-    <meta name="description" content="Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.">
+    <title>Book 3 - Coming Soon | Steve Ballantyne & Troy Everest</title>
+    <meta name="description" content="Book 3 by Steve Ballantyne & Troy Everest - Coming Soon!">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -421,33 +421,35 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 id="hero-title">LOS DEMONIOS</h1>
-                    <p class="subtitle" id="hero-subtitle">The Dark and Supernatural City Below Los Angeles</p>
-                    <p class="tagline" id="hero-tagline">Book 1</p>
+                    <h1 id="hero-title">BOOK 3</h1>
+                    <p class="subtitle" id="hero-subtitle">Coming Soon</p>
+                    <p class="tagline" id="hero-tagline">By Steve Ballantyne & Troy Everest</p>
                     
-                    <div class="rating">
-                        <span class="stars">★★★★★</span>
-                        <span><span id="rating-value">4.8</span> out of 5 stars (<span id="rating-count">6 reviews</span>)</span>
-                    </div>
-
-                    <p class="description" id="hero-description">
-                        Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.
+                    <p class="description" id="hero-description" style="font-size: 1.5rem; font-style: italic;">
+                        Stay tuned for the next thrilling adventure from Steve Ballantyne & Troy Everest.
                     </p>
 
                     <div class="cta-buttons">
-                        <a href="https://www.amazon.ca/dp/B0FV29SR63" id="amazon-link" target="_blank" class="btn btn-primary">Buy on Amazon</a>
-                        <a href="#synopsis" class="btn btn-secondary">Read More</a>
+                        <a href="/contact.html" class="btn btn-secondary">Get Notified</a>
                     </div>
                 </div>
 
                 <div class="hero-image">
-                    <img src="assets/book-cover.jpg" id="book-cover-img" alt="Los Demonios Book Cover" class="book-cover">
+                    <div style="width: 100%; max-width: 500px; height: 700px; background: linear-gradient(135deg, #2d1b4e 0%, #1a0e2e 50%, #0d0616 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); border: 2px solid rgba(212, 175, 55, 0.3); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 70%);"></div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-family: 'Cinzel', serif; font-size: 3.5rem; font-weight: 700; color: #d4af37; text-align: center; margin-bottom: 30px; text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(139, 0, 0, 0.5);">BOOK 3</div>
+                            <div style="font-size: 2rem; color: rgba(245, 245, 245, 0.8); text-align: center; margin-bottom: 40px; font-style: italic; font-weight: 300;">Coming Soon</div>
+                            <div style="width: 100px; height: 2px; background: linear-gradient(90deg, transparent, #d4af37, transparent); margin: 40px auto;"></div>
+                            <div style="font-size: 1.3rem; color: #a0a0a0; text-align: center; margin-top: 40px;">Steve Ballantyne<br>Troy Everest</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="features">
+    <section id="about" class="features" style="display: none;">
         <div class="container">
             <div class="features" id="features-container">
                 <div class="feature-card">
@@ -471,7 +473,7 @@
         </div>
     </section>
 
-    <section id="synopsis" class="synopsis">
+    <section id="synopsis" class="synopsis" style="display: none;">
         <div class="container">
             <h2 class="section-title">The Story</h2>
             <div class="synopsis-content" id="synopsis-content">
@@ -491,7 +493,7 @@
         </div>
     </section>
 
-    <section id="purchase" class="purchase-section">
+    <section id="purchase" class="purchase-section" style="display: none;">
         <div class="container">
             <h2 class="section-title">Get Your Copy</h2>
             <div class="purchase-options" id="purchase-options">
@@ -539,58 +541,6 @@
     </footer>
 
     <script>
-        fetch('content/landing.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('nav-logo').textContent = data.title;
-                document.getElementById('hero-title').textContent = data.title;
-                document.getElementById('hero-subtitle').textContent = data.subtitle;
-                document.getElementById('hero-tagline').textContent = data.tagline;
-                document.getElementById('hero-description').textContent = data.description;
-                document.getElementById('rating-value').textContent = data.rating;
-                document.getElementById('rating-count').textContent = data.ratingCount;
-                document.getElementById('amazon-link').href = data.amazonLink;
-                document.getElementById('book-cover-img').src = data.coverImage;
-                
-                document.getElementById('synopsis-para1').textContent = data.synopsis.para1;
-                document.getElementById('synopsis-para2').textContent = data.synopsis.para2;
-                document.getElementById('synopsis-para3').textContent = data.synopsis.para3;
-                document.getElementById('synopsis-para4').textContent = data.synopsis.para4;
-                
-                const featuresContainer = document.getElementById('features-container');
-                featuresContainer.innerHTML = '';
-                data.features.forEach(feature => {
-                    const featureCard = document.createElement('div');
-                    featureCard.className = 'feature-card';
-                    featureCard.innerHTML = `
-                        <div class="feature-icon">${feature.icon}</div>
-                        <h3>${feature.title}</h3>
-                        <p>${feature.description}</p>
-                    `;
-                    featuresContainer.appendChild(featureCard);
-                });
-                
-                const purchaseOptions = document.getElementById('purchase-options');
-                purchaseOptions.innerHTML = '';
-                data.purchaseOptions.forEach(option => {
-                    const card = document.createElement('div');
-                    card.className = 'purchase-card';
-                    card.innerHTML = `
-                        <div class="format-label">${option.format}</div>
-                        <div class="price">${option.price}</div>
-                        <p class="price-note">${option.note}</p>
-                        <a href="${option.link}" target="_blank" class="btn btn-primary">Buy ${option.format}</a>
-                    `;
-                    purchaseOptions.appendChild(card);
-                });
-                
-                document.getElementById('author-names').textContent = data.authors.names;
-                document.getElementById('author-bio').textContent = data.authors.bio;
-            })
-            .catch(error => {
-                console.error('Error loading content:', error);
-            });
-
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
