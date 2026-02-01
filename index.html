@@ -106,9 +106,9 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 250px 1fr 1fr;
+            gap: 40px;
+            align-items: start;
         }
 
         .hero-text h1 {
@@ -420,6 +420,27 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <div style="display: flex; flex-direction: column; gap: 30px; max-width: 250px;">
+                    <div style="max-width: 250px;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 15px; text-align: center;">Watch the Trailer</h3>
+                        <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 20px 60px rgba(139, 0, 0, 0.5);">
+                            <iframe 
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                src="https://www.youtube.com/embed/AjcxveXeQMQ" 
+                                title="Los Demonios Trailer" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div style="text-align: center; margin-top: 10px;">
+                            <a href="https://youtube.com/shorts/AjcxveXeQMQ?si=lfgYfGY_dCYj9DOu" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-size: 0.9rem;">
+                                Watch on YouTube →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="hero-text">
                     <h1 id="hero-title">LOS DEMONIOS</h1>
                     <p class="subtitle" id="hero-subtitle">The Dark and Supernatural City Below Los Angeles</p>
@@ -442,29 +463,6 @@
 
                 <div class="hero-image">
                     <img src="assets/los-demonios-cover.jpg" id="book-cover-img" alt="Los Demonios Book Cover" class="book-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="video-section" style="padding: 40px 0; background: rgba(10, 10, 10, 0.6);">
-        <div class="container">
-            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">Watch the Trailer</h2>
-            <div style="max-width: 300px; margin: 0 auto;">
-                <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 20px 60px rgba(139, 0, 0, 0.5);">
-                    <iframe 
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                        src="https://www.youtube.com/embed/AjcxveXeQMQ" 
-                        title="Los Demonios Trailer" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div style="text-align: center; margin-top: 15px;">
-                    <a href="https://youtube.com/shorts/AjcxveXeQMQ?si=lfgYfGY_dCYj9DOu" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-size: 1rem;">
-                        Watch on YouTube →
-                    </a>
                 </div>
             </div>
         </div>
