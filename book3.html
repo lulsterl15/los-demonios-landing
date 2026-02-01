@@ -403,6 +403,26 @@
                 display: none;
             }
         }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(255, 69, 0, 0.6);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -424,6 +444,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div style="display: inline-block; background: linear-gradient(135deg, #ff4500, #ff8c00); padding: 8px 20px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 600; color: white; box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4); animation: pulse 2s infinite;">
+                        🆕 JUST RELEASED! - Be Among the First to Read
+                    </div>
                     <h1 id="hero-title">CERN288</h1>
                     <p class="subtitle" id="hero-subtitle">A Time Travel Military Thriller</p>
                     <p class="tagline" id="hero-tagline">By Steve Ballantyne & Troy Everest</p>
@@ -433,14 +456,36 @@
                         <span>New Release - January 22, 2026</span>
                     </div>
 
+                    <div style="background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--accent-gold); padding: 15px 20px; margin: 20px 0; border-radius: 5px;">
+                        <p style="margin: 0; font-size: 1.05rem; color: var(--text-light); font-weight: 500;">
+                            <span style="color: var(--accent-gold); font-weight: 700;">⚔️ "Timeline meets The Final Countdown"</span><br>
+                            What if you could change history's darkest hour? 288 modern people trapped in ancient Rome's greatest battle.
+                        </p>
+                    </div>
+
                     <p class="description" id="hero-description">
                         An international ceremony at CERN is interrupted when 288 people—including the American President—are transported 2,000 years into the past to the Battle of Teutoburg Forest.
                     </p>
 
+                    <div style="background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.1)); border: 2px solid #ff6347; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
+                        <p style="margin: 0 0 10px 0; font-size: 1.3rem; color: #ff6347; font-weight: 700;">
+                            🎯 LAUNCH SPECIAL - ONLY $5.52
+                        </p>
+                        <p style="margin: 0; font-size: 0.95rem; color: var(--text-light);">
+                            Get it FREE with Kindle Unlimited | 345 pages of non-stop action
+                        </p>
+                    </div>
+
                     <div class="cta-buttons">
-                        <a href="https://www.amazon.ca/CERN288-Steve-Ballantyne-ebook/dp/B0GJ6KX4VP" target="_blank" class="btn btn-primary">Buy on Amazon</a>
+                        <a href="https://www.amazon.ca/CERN288-Steve-Ballantyne-ebook/dp/B0GJ6KX4VP" target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 45px; position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 1;">⚡ Grab Your Copy NOW</span>
+                            <span style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite;"></span>
+                        </a>
                         <a href="#synopsis" class="btn btn-secondary">Read More</a>
                     </div>
+                    <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 10px; text-align: center;">
+                        📚 Available in Kindle, Paperback & Coming Soon: Hardcover
+                    </p>
                 </div>
 
                 <div class="hero-image">

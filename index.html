@@ -400,6 +400,26 @@
                 display: none;
             }
         }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -442,6 +462,9 @@
                 </div>
 
                 <div class="hero-text">
+                    <div style="display: inline-block; background: linear-gradient(135deg, #8b0000, #ff0000); padding: 8px 20px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 600; color: white; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); animation: pulse 2s infinite;">
+                        🔥 FREE with Kindle Unlimited - Read Now!
+                    </div>
                     <h1 id="hero-title">LOS DEMONIOS</h1>
                     <p class="subtitle" id="hero-subtitle">The Dark and Supernatural City Below Los Angeles</p>
                     <p class="tagline" id="hero-tagline">Book 1</p>
@@ -451,14 +474,26 @@
                         <span><span id="rating-value">4.8</span> out of 5 stars (<span id="rating-count">6 reviews</span>)</span>
                     </div>
 
+                    <div style="background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--accent-gold); padding: 15px 20px; margin: 20px 0; border-radius: 5px;">
+                        <p style="margin: 0; font-size: 1.1rem; color: var(--accent-gold); font-weight: 600;">
+                            ⚡ Readers can't put it down: <span style="color: var(--text-light);">"A fresh take on urban fantasy with noir elements that kept me hooked from page one."</span>
+                        </p>
+                    </div>
+
                     <p class="description" id="hero-description">
                         Welcome to Los Demonios—where the night is alive, the rules are dead, and rookie cop Jim Delaney is about to learn that desire and death can be dangerously interlinked.
                     </p>
 
                     <div class="cta-buttons">
-                        <a href="https://www.amazon.ca/dp/B0FV29SR63" id="amazon-link" target="_blank" class="btn btn-primary">Buy on Amazon</a>
+                        <a href="https://www.amazon.ca/dp/B0FV29SR63" id="amazon-link" target="_blank" class="btn btn-primary" style="position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 1;">📖 Start Reading FREE Today</span>
+                            <span style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite;"></span>
+                        </a>
                         <a href="#synopsis" class="btn btn-secondary">Read More</a>
                     </div>
+                    <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 10px; font-style: italic;">
+                        💳 No commitment - Cancel Kindle Unlimited anytime
+                    </p>
                 </div>
 
                 <div class="hero-image">
